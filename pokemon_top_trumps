@@ -1,4 +1,6 @@
 print('Hello world')
+
+# first task example
 import random
 
 pokemon_id = random.randint(1, 151)
