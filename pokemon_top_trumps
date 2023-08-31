@@ -5,4 +5,4 @@ import random
 
 pokemon_id = random.randint(1, 151)
 print(pokemon_id)
-print("Testing")
+
