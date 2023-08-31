@@ -14,7 +14,7 @@ print(pokemon["name"])
 print(pokemon["height"])
 print(pokemon["weight"])
 
-# Maia example
+# Maia code example
 
 import requests
 
@@ -31,7 +31,7 @@ def get_pokemon_by_id(pokemon_id):
         return None
 
 
-pokemon_id = 25  # You can replace this with the ID you want to fetch
+pokemon_id = 25  
 pokemon_data = get_pokemon_by_id(pokemon_id)
 
 if pokemon_data:
