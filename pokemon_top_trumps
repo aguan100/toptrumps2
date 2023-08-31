@@ -1,6 +1,6 @@
 print('Hello world')
 
-# first task example
+# first task example (Maia)
 import random
 
 pokemon_id = random.randint(1, 151)
