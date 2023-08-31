@@ -13,3 +13,35 @@ pokemon = response.json()
 print(pokemon["name"])
 print(pokemon["height"])
 print(pokemon["weight"])
+
+# Maia example
+
+import requests
+
+
+def get_pokemon_by_id(pokemon_id):
+    url = f"https://pokeapi.co/api/v2/pokemon/{pokemon_id}/"
+    response = requests.get(url)
+
+    if response.status_code == 200:
+        pokemon_data = response.json()
+        return pokemon_data
+    else:
+        print(f"Error: Unable to retrieve data for Pokemon with ID {pokemon_id}")
+        return None
+
+
+pokemon_id = 25  # You can replace this with the ID you want to fetch
+pokemon_data = get_pokemon_by_id(pokemon_id)
+
+if pokemon_data:
+    pokemon_info = {
+        "name": pokemon_data['name'],
+        "id": pokemon_data['id'],
+        "height": pokemon_data['height'],
+        "weight": pokemon_data['weight']
+    }
+
+    print("Pokemon Information:")
+    for key, value in pokemon_info.items():
+        print(f"{key.capitalize()}: {value}")
