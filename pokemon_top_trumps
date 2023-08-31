@@ -14,7 +14,7 @@ print(pokemon["name"])
 print(pokemon["height"])
 print(pokemon["weight"])
 
-# Maia code example
+# dictionary w/ Pokémon's name, ID, height, and weight: (Maia)
 
 import requests
 
