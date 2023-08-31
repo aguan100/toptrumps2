@@ -3,3 +3,13 @@ import random
 
 pokemon_id = random.randint(1, 151)
 print(pokemon_id)
+
+#Random Pokemon name, height, weight (Jess)
+import requests
+url = 'https://pokeapi.co/api/v2/pokemon/{}/'.format(pokemon_id)
+response = requests.get(url)
+pokemon = response.json()
+
+print(pokemon["name"])
+print(pokemon["height"])
+print(pokemon["weight"])
