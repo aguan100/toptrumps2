@@ -45,3 +45,28 @@ if pokemon_data:
     print("Pokemon Information:")
     for key, value in pokemon_info.items():
         print(f"{key.capitalize()}: {value}")
+
+# letting the player choose the stat to compare and then generating a random pokemon for the opponent (Alice)
+
+my_pokemon_stat = input('Choose a stat to compare against your opponent (id, height, weight): '.lower())
+
+print('\n')
+
+opponent_pokemon_id = random.randint(1, 151)
+def get_opponent_pokemon_by_id(opponent_pokemon_id):
+    url = f"https://pokeapi.co/api/v2/pokemon/{opponent_pokemon_id}/"
+    response = requests.get(url)
+    opponent_pokemon_data = response.json()
+    return opponent_pokemon_data
+opponent_pokemon_data = get_opponent_pokemon_by_id(opponent_pokemon_id)
+if opponent_pokemon_data:
+    opponent_pokemon_info = {
+        "name": opponent_pokemon_data['name'],
+        "id": opponent_pokemon_data['id'],
+        "height": opponent_pokemon_data['height'],
+        "weight": opponent_pokemon_data['weight']
+    }
+
+    print("Opponent Pokemon Information:")
+    for key, value in opponent_pokemon_info.items():
+        print(f"{key.capitalize()}: {value}")
