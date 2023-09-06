@@ -50,6 +50,14 @@ if pokemon_data:
 
 my_pokemon_stat = input('Choose a stat to compare against your opponent (id, height, weight): '.lower())
 
+chosen_id = my_pokemon_stat == 'id'
+chosen_height = my_pokemon_stat == 'height'
+chosen_weight = my_pokemon_stat == 'weight'
+
+if not chosen_id or chosen_height or chosen_weight:
+    print('Please enter a valid stat')
+    exit()
+
 print('\n')
 
 opponent_pokemon_id = random.randint(1, 151)
