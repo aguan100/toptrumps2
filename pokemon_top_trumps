@@ -70,3 +70,33 @@ if opponent_pokemon_data:
     print("Opponent Pokemon Information:")
     for key, value in opponent_pokemon_info.items():
         print(f"{key.capitalize()}: {value}")
+
+def compare_stats():
+    if pokemon_info['id'] > opponent_pokemon_info ['id']:
+        if my_pokemon_stat == 'id':
+            print('Your card has the higher value - you win!')
+    if pokemon_info['id'] < opponent_pokemon_info ['id']:
+        if my_pokemon_stat == 'id':
+            print('Your card has the lower value - you lose!')
+    if pokemon_info['id'] == opponent_pokemon_info['id']:
+        if my_pokemon_stat == 'id':
+            print('Your card stats are the same - you draw!')
+    if pokemon_info['height'] > opponent_pokemon_info['height']:
+        if my_pokemon_stat == 'height':
+            print('Your card has the higher value - you win!')
+    if pokemon_info['height'] < opponent_pokemon_info['height']:
+        if my_pokemon_stat == 'height':
+            print('Your card has the lower value - you lose!')
+    if pokemon_info['height'] == opponent_pokemon_info['height']:
+        if my_pokemon_stat == 'height':
+            print('Your card stats are the same - you draw!')
+    if pokemon_info['weight'] > opponent_pokemon_info['weight']:
+        if my_pokemon_stat == 'weight':
+            print('Your card has the higher value - you win!')
+    if pokemon_info['weight'] < opponent_pokemon_info['weight']:
+        if my_pokemon_stat == 'weight':
+            print('Your card has the lower value - you lose!')
+    if pokemon_info['weight'] == opponent_pokemon_info['weight']:
+        if my_pokemon_stat == 'weight':
+            print('Your card stats are the same - you draw!')
+compare_stats()
