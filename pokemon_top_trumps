@@ -44,6 +44,70 @@ if pokemon_data:
     for key, value in pokemon_info.items():
         print(f"{key.capitalize()}: {value}")
 
+# Get a random Pokémon for the player (Maia)
+player_pokemon = get_random_pokemon()
+if player_pokemon:
+    print("Player's Pokémon:")
+    print(f"Name: {player_pokemon['name']}")
+    print(f"ID: {player_pokemon['id']}")
+    print(f"Height: {player_pokemon['height']}")
+    print(f"Weight: {player_pokemon['weight']}")
+    print("\n")
+
+# Get a random Pokémon for the opponent (Maia)
+opponent_pokemon = get_random_pokemon()
+if opponent_pokemon:
+    print("Opponent's Pokémon:")
+    print(f"Name: {opponent_pokemon['name']}")
+    print(f"ID: {opponent_pokemon['id']}")
+    print(f"Height: {opponent_pokemon['height']}")
+    print(f"Weight: {opponent_pokemon['weight']}")
+
+import requests
+
+# Function to get a Pokémon's stat by ID (Maia)
+def get_pokemon_stat_by_id(pokemon_id, stat):
+    url = f"https://pokeapi.co/api/v2/pokemon/{pokemon_id}/"
+    response = requests.get(url)
+    
+    if response.status_code == 200:
+        pokemon_data = response.json()
+        if stat == 'id':
+            return pokemon_data['id']
+        elif stat == 'height':
+            return pokemon_data['height']
+        elif stat == 'weight':
+            return pokemon_data['weight']
+        else:
+            return None
+    else:
+        print(f"Error: Unable to retrieve data for Pokémon with ID {pokemon_id}")
+        return None
+
+# Ask the user which stat they want (Maia)
+stat = input("Which stat of a Pokémon do you want to know (id, height, or weight)? ").lower()
+
+# Ask the user for a Pokémon ID (Maia)
+pokemon_id = int(input("Enter a Pokémon ID: "))
+
+# Get the requested stat for the given Pokémon (Maia)
+pokemon_stat = get_pokemon_stat_by_id(pokemon_id, stat)
+
+if pokemon_stat is not None:
+    print(f"The {stat} of Pokémon with ID {pokemon_id} is: {pokemon_stat}")
+else:
+    print("Invalid input or error in fetching Pokémon data.")
+
+# Function to determine the winner based on the chosen stat (Maia)
+def determine_winner(player_stat, opponent_stat):
+    if player_stat > opponent_stat:
+        return "Player wins!"
+    elif player_stat < opponent_stat:
+        return "Opponent wins!"
+    else:
+        return "It's a tie!"
+
+
 # letting the player choose the stat to compare and then generating a random pokemon for the opponent (Alice)
 
 my_pokemon_stat = input('Choose a stat to compare against your opponent (id, height, weight, base_experience): '.lower())
@@ -115,66 +179,5 @@ compare_stats()
 
 # There is no need to include double if statements and there is a way that you can simplify all the if statements with else statements (Jess :) )
 
-# Get a random Pokémon for the player (Maia)
-player_pokemon = get_random_pokemon()
-if player_pokemon:
-    print("Player's Pokémon:")
-    print(f"Name: {player_pokemon['name']}")
-    print(f"ID: {player_pokemon['id']}")
-    print(f"Height: {player_pokemon['height']}")
-    print(f"Weight: {player_pokemon['weight']}")
-    print("\n")
 
-# Get a random Pokémon for the opponent (Maia)
-opponent_pokemon = get_random_pokemon()
-if opponent_pokemon:
-    print("Opponent's Pokémon:")
-    print(f"Name: {opponent_pokemon['name']}")
-    print(f"ID: {opponent_pokemon['id']}")
-    print(f"Height: {opponent_pokemon['height']}")
-    print(f"Weight: {opponent_pokemon['weight']}")
-
-import requests
-
-# Function to get a Pokémon's stat by ID (Maia)
-def get_pokemon_stat_by_id(pokemon_id, stat):
-    url = f"https://pokeapi.co/api/v2/pokemon/{pokemon_id}/"
-    response = requests.get(url)
-    
-    if response.status_code == 200:
-        pokemon_data = response.json()
-        if stat == 'id':
-            return pokemon_data['id']
-        elif stat == 'height':
-            return pokemon_data['height']
-        elif stat == 'weight':
-            return pokemon_data['weight']
-        else:
-            return None
-    else:
-        print(f"Error: Unable to retrieve data for Pokémon with ID {pokemon_id}")
-        return None
-
-# Ask the user which stat they want (Maia)
-stat = input("Which stat of a Pokémon do you want to know (id, height, or weight)? ").lower()
-
-# Ask the user for a Pokémon ID (Maia)
-pokemon_id = int(input("Enter a Pokémon ID: "))
-
-# Get the requested stat for the given Pokémon (Maia)
-pokemon_stat = get_pokemon_stat_by_id(pokemon_id, stat)
-
-if pokemon_stat is not None:
-    print(f"The {stat} of Pokémon with ID {pokemon_id} is: {pokemon_stat}")
-else:
-    print("Invalid input or error in fetching Pokémon data.")
-
-# Function to determine the winner based on the chosen stat (Maia)
-def determine_winner(player_stat, opponent_stat):
-    if player_stat > opponent_stat:
-        return "Player wins!"
-    elif player_stat < opponent_stat:
-        return "Opponent wins!"
-    else:
-        return "It's a tie!"
 
