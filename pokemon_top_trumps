@@ -110,3 +110,22 @@ def compare_stats():
             print('Your card stats are the same - you draw!')
 compare_stats()
 # There is no need to include double if statements and there is a way that you can simplify all the if statements with else statements (Jess :) )
+
+# Get a random Pokémon for the player (Maia)
+player_pokemon = get_random_pokemon()
+if player_pokemon:
+    print("Player's Pokémon:")
+    print(f"Name: {player_pokemon['name']}")
+    print(f"ID: {player_pokemon['id']}")
+    print(f"Height: {player_pokemon['height']}")
+    print(f"Weight: {player_pokemon['weight']}")
+    print("\n")
+
+# Get a random Pokémon for the opponent (Maia)
+opponent_pokemon = get_random_pokemon()
+if opponent_pokemon:
+    print("Opponent's Pokémon:")
+    print(f"Name: {opponent_pokemon['name']}")
+    print(f"ID: {opponent_pokemon['id']}")
+    print(f"Height: {opponent_pokemon['height']}")
+    print(f"Weight: {opponent_pokemon['weight']}")
