@@ -23,26 +23,22 @@ def get_pokemon_by_id(pokemon_id):
     url = f"https://pokeapi.co/api/v2/pokemon/{pokemon_id}/"
     response = requests.get(url)
 
-    if response.status_code == 200:
-        pokemon_data = response.json()
-        return pokemon_data
-    else:
+    if response.status_code != 200:
         print(f"Error: Unable to retrieve data for Pokemon with ID {pokemon_id}")
         return None
+    else:
+        pokemon_data = response.json()
+        return pokemon_data
 
-pokemon_id = 25  
+
+pokemon_id = 25
 pokemon_data = get_pokemon_by_id(pokemon_id)
-# Using this bit of code, only one pokemon id(25) is retrieved and so you will always have the same pokeon each time your run it.
+# Using this bit of code, only one pokemon id(25) is retrieved and so you will always have the same pokemon each time your run it.
 # Using the random pokemon id as you had in line 4 means that you can leave the pokemon id as is. Let me know if this makes sense. Jess :)
 
 if pokemon_data:
-    pokemon_info = {
-        "name": pokemon_data['name'],
-        "id": pokemon_data['id'],
-        "height": pokemon_data['height'],
-        "weight": pokemon_data['weight']
-        "base_experience": pokemon_data['base_experience']
-    }
+    pokemon_info = {'name': pokemon_data['name'], 'id': pokemon_data['id'], 'height': pokemon_data['height'],
+                    'weight': pokemon_data['weight'], 'base_experience': pokemon_data['base_experience']}
 
     print("Pokemon Information:")
     for key, value in pokemon_info.items():
