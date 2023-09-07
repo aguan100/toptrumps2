@@ -41,6 +41,7 @@ if pokemon_data:
         "id": pokemon_data['id'],
         "height": pokemon_data['height'],
         "weight": pokemon_data['weight']
+        "base_experience": pokemon_data['base_experience']
     }
 
     print("Pokemon Information:")
@@ -49,17 +50,13 @@ if pokemon_data:
 
 # letting the player choose the stat to compare and then generating a random pokemon for the opponent (Alice)
 
-my_pokemon_stat = input('Choose a stat to compare against your opponent (id, height, weight): '.lower())
+my_pokemon_stat = input('Choose a stat to compare against your opponent (id, height, weight, base_experience): '.lower())
 
-chosen_id = my_pokemon_stat == 'id'
-chosen_height = my_pokemon_stat == 'height'
-chosen_weight = my_pokemon_stat == 'weight'
-
-if not chosen_id or chosen_height or chosen_weight:
+if chosen_id or chosen_height or chosen_weight or chosen_exp:
+    print('')
+else:
     print('Please enter a valid stat')
     exit()
-
-print('\n')
 
 opponent_pokemon_id = random.randint(1, 151)
 def get_opponent_pokemon_by_id(opponent_pokemon_id):
@@ -74,6 +71,7 @@ if opponent_pokemon_data:
         "id": opponent_pokemon_data['id'],
         "height": opponent_pokemon_data['height'],
         "weight": opponent_pokemon_data['weight']
+        "base_experience": opponent_pokemon_data ['base_experience']
     }
 
     print("Opponent Pokemon Information:")
@@ -108,7 +106,17 @@ def compare_stats():
     if pokemon_info['weight'] == opponent_pokemon_info['weight']:
         if my_pokemon_stat == 'weight':
             print('Your card stats are the same - you draw!')
+    if pokemon_info['base_experience'] > opponent_pokemon_info['base_experience']:
+        if my_pokemon_stat == 'base_experience':
+            print('Your card has the higher value - you win!')
+    if pokemon_info['base_experience'] < opponent_pokemon_info['base_experience']:
+        if my_pokemon_stat == 'base_experience':
+            print('Your card has the lower value - you lose!')
+    if pokemon_info['base_experience'] == opponent_pokemon_info['base_experience']:
+        if my_pokemon_stat == 'base_experience':
+            print('Your card stats are the same - you draw!')
 compare_stats()
+
 # There is no need to include double if statements and there is a way that you can simplify all the if statements with else statements (Jess :) )
 
 # Get a random Pokémon for the player (Maia)
