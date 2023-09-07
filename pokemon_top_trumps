@@ -172,3 +172,13 @@ if pokemon_stat is not None:
     print(f"The {stat} of Pokémon with ID {pokemon_id} is: {pokemon_stat}")
 else:
     print("Invalid input or error in fetching Pokémon data.")
+
+# Function to determine the winner based on the chosen stat (Maia)
+def determine_winner(player_stat, opponent_stat):
+    if player_stat > opponent_stat:
+        return "Player wins!"
+    elif player_stat < opponent_stat:
+        return "Opponent wins!"
+    else:
+        return "It's a tie!"
+
