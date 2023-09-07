@@ -30,9 +30,10 @@ def get_pokemon_by_id(pokemon_id):
         print(f"Error: Unable to retrieve data for Pokemon with ID {pokemon_id}")
         return None
 
-
 pokemon_id = 25  
 pokemon_data = get_pokemon_by_id(pokemon_id)
+# Using this bit of code, only one pokemon id(25) is retrieved and so you will always have the same pokeon each time your run it.
+# Using the random pokemon id as you had in line 4 means that you can leave the pokemon id as is. Let me know if this makes sense. Jess :)
 
 if pokemon_data:
     pokemon_info = {
@@ -108,3 +109,4 @@ def compare_stats():
         if my_pokemon_stat == 'weight':
             print('Your card stats are the same - you draw!')
 compare_stats()
+# There is no need to include double if statements and there is a way that you can simplify all the if statements with else statements (Jess :) )
